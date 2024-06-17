@@ -3,17 +3,16 @@ import { addDoc, collection } from 'firebase/firestore';
 import db from '../firebase/firebase'
 
 function ExpenseEntry( {purchases}) {
-    const [entryName, setEntryName] = useState({});
-    const [entryDate, setEntryDate] = useState({});
-    const [entryBankCard, setEntryBankCard] = useState({});
-    const [entryCategory, setEntryCategory] = useState({});
-    const [entrySubCategory, setEntrySubCategory] = useState({});
-    const [entryAmount, setEntryAmount] = useState({});
-    const [entryEssentialCheck, setEntryEssentialCheck] = useState({});
+    const [entryName, setEntryName] = useState('');
+    const [entryDate, setEntryDate] = useState('');
+    const [entryBankCard, setEntryBankCard] = useState('');
+    const [entryCategory, setEntryCategory] = useState('');
+    const [entrySubCategory, setEntrySubCategory] = useState('');
+    const [entryAmount, setEntryAmount] = useState(0);
+    const [entryEssentialCheck, setEntryEssentialCheck] = useState(false);
 
     function handleNewPurchaseName(event) {
         setEntryName(event.target.value);
-        console.log(entryName)
     }
 
     function handleNewPurchaseDate(event) {
@@ -45,6 +44,14 @@ function ExpenseEntry( {purchases}) {
         }
     }
 
+    console.log(entryName);
+    console.log(entryDate);
+    console.log(entryBankCard);
+    console.log(entryCategory);
+    console.log(entrySubCategory);
+    console.log(entryAmount);
+    console.log(entryEssentialCheck);
+
     const handleNewPurchaseLog = async() => {
         const collectionRef = collection(db, "purchases");
         const payload = {
@@ -54,10 +61,12 @@ function ExpenseEntry( {purchases}) {
             "category": entryCategory,
             "subCategory": entrySubCategory,
             "amount": entryAmount,
-            "wasEssential": entryEssentialCheck
+            "isEssential": entryEssentialCheck
         }
         await addDoc(collectionRef, payload);
     }
+
+
 
   return (
     <div>
@@ -151,12 +160,12 @@ function ExpenseEntry( {purchases}) {
                     {purchases.map((purchase) => (
                         <tr>
                             <td className="name px-6 py-4">{purchase.name}</td>
-                            <td className="date px-6 py-4">{purchase.name}</td>
+                            <td className="date px-6 py-4">{purchase.date}</td>
                             <td className="card px-6 py-4">{purchase.paymentCard}</td>
                             <td className="category px-6 py-4">{purchase.category}</td>
                             <td className="sub-category px-6 py-4">{purchase.subCategory}</td>
                             <td className="amount px-6 py-4">{purchase.amount}</td>
-                            <td className="px-6 py-4">{purchase.wasEssential === true? 'Yes': 'No'}</td>
+                            <td className="px-6 py-4">{purchase.isEssential === true? 'Yes': 'No'}</td>
                         </tr>
                     ))}
                 </tbody>
