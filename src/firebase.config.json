@@ -1,0 +1,11 @@
+{
+    "firebaseConfig": {
+        "apiKey": "AIzaSyDrZmqRbPxvJfciy_DhVAgc9wWyeHp2kJM",
+        "authDomain": "budget-amigo-ff8d9.firebaseapp.com",
+        "projectId": "budget-amigo-ff8d9",
+        "storageBucket": "budget-amigo-ff8d9.appspot.com",
+        "messagingSenderId": "992973994617",
+        "appId": "1:992973994617:web:b172cf17e5dd70fb8bf2a8",
+        "measurementId": "G-M9KXVLKKRE"
+    }
+}
