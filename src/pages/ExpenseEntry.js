@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { addDoc, collection } from 'firebase/firestore';
-import db from '../firebase'
+import db from '../firebase/firebase'
 
 function ExpenseEntry( {purchases}) {
-    // const [newPurchase, setNewPurchase] = useState({});
     const [entryName, setEntryName] = useState({});
     const [entryDate, setEntryDate] = useState({});
     const [entryBankCard, setEntryBankCard] = useState({});

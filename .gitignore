@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # secrets
-/firebase.config.json
+/src/firebase/firebaseConfig.js
 .vscode/

@@ -2,17 +2,10 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import ExpenseEntry from "./pages/ExpenseEntry"
 import { collection, onSnapshot } from 'firebase/firestore';
-import db from './firebase';
+import db from './firebase/firebase';
 
 function App() {
-
   const [purchases, setPurchases] = useState([]);
-
-  // useEffect(() => {
-  //   onSnapshot(collection(db, "users"), (snapshot) => {
-  //     console.log(snapshot.docs.map((doc) => doc.data()));
-  //   });
-  // }, []);
 
   useEffect(() => {
     onSnapshot(collection(db, "purchases"), (snapshot) => {
